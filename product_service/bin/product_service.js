@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import * as cdk from 'aws-cdk-lib';
-import { ProductServiceStack } from '../lib/product_service-stack';
+
+const cdk = require('aws-cdk-lib');
+const { ProductServiceStack } = require('../lib/product_service-stack');
 
 const app = new cdk.App();
 new ProductServiceStack(app, 'ProductServiceStack', {

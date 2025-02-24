@@ -1,5 +1,4 @@
-// data from chatgpt
-export const products: any[] = [
+export const products = [
   {
     description: 'Premium wireless earbuds with active noise cancellation and 24-hour battery life',
     id: 'EP001',
@@ -91,3 +90,14 @@ export const products: any[] = [
     title: 'SolarGlow Path Lights',
   },
 ];
+
+exports.handler = async () => {
+  return {
+    statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": true,
+    },
+    body: JSON.stringify(products),
+  };
+};

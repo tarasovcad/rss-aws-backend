@@ -1,14 +1,14 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as ProductService from '../lib/product_service-stack';
+// const cdk = require('aws-cdk-lib');
+// const { Template } = require('aws-cdk-lib/assertions');
+// const ProductService = require('../lib/product_service-stack');
 
 // example test. To run these tests, uncomment this file along with the
-// example resource in lib/product_service-stack.ts
+// example resource in lib/product_service-stack.js
 test('SQS Queue Created', () => {
 //   const app = new cdk.App();
-//     // WHEN
+//   // WHEN
 //   const stack = new ProductService.ProductServiceStack(app, 'MyTestStack');
-//     // THEN
+//   // THEN
 //   const template = Template.fromStack(stack);
 
 //   template.hasResourceProperties('AWS::SQS::Queue', {
