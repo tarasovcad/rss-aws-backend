@@ -1,6 +1,7 @@
 const { products } = require('./products/products')
 
 exports.handler = async () => {
+ try {
   return {
     statusCode: 200,
     headers: {
@@ -9,4 +10,10 @@ exports.handler = async () => {
     },
     body: JSON.stringify(products),
   };
+ } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message }),
+    };
+  }
 };
