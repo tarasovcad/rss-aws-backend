@@ -13,6 +13,12 @@ class ProductServiceStack extends Stack {
       handler: 'getProductsList.handler',
     });
 
+    const getProductsById = new Function(this, 'GetProductsById', {
+      runtime: Runtime.NODEJS_20_X,
+      code: Code.fromAsset('./lambda'),
+      handler: 'getProductsById.handler',
+    });
+
     const api = new RestApi(this, "ProductServiceAPI", {
       defaultCorsPreflightOptions: {
         allowOrigins: Cors.ALL_ORIGINS,
@@ -21,8 +27,10 @@ class ProductServiceStack extends Stack {
     });
 
     const products = api.root.addResource("products");
-
     products.addMethod("GET", new LambdaIntegration(getProductsList));
+
+    const productResource = products.addResource('{productId}');
+    productResource.addMethod('GET', new LambdaIntegration(getProductsById));
 
   }
 }
